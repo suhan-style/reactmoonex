@@ -1,0 +1,268 @@
+header {
+    background: #e03d24;
+    padding: 0px 15px;
+    height: 90px;
+}
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+#logo, #hemburger_menu {
+    flex-basis: 20%;
+}
+#logo a {
+    display: block;
+}
+#menu {
+    flex-basis: 60%;
+}
+#menu, #menu nav, #menu .main-menu {
+    height: 100%;
+}
+#menu ul.main-menu {
+    display: flex;
+    gap: 50px;
+}
+#menu ul li {
+    list-style: none;
+    position: relative;
+}
+#menu ul.main-menu li {
+    display: flex;
+    align-items: center;
+}
+#menu ul li a {
+    font-family: 'Cerebri Sans Bold';
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color linear .2s;
+    position: relative;
+}
+#menu ul > li > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+#menu ul li a.active,
+#menu ul.main-menu > li > a:hover,
+#menu ul.main-menu > li:hover > a {
+    color: #fafafa;
+}
+#menu ul.main-menu li.has-children:hover:after {
+    content: "";
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #fff;
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#menu ul li .sub-menu {
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    padding: 8px 15px;
+    min-width: 200px;
+    display: none;
+}
+#menu ul li .sub-menu a.active {
+    color: #e03d24;
+}
+#menu ul li.has-children:hover .sub-menu {
+    display: block;
+}
+#menu .sub-menu li:first-child {
+    padding-top: 10px;
+}
+#menu .sub-menu li {
+    padding: 5px;
+}
+#menu .main-menu .sub-menu li a:hover {
+    color: #e03d24;
+}
+
+#hemburger_menu .header-right-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+.search-icon i, .hemburger-icon i {
+    font-size: 28px;
+    cursor: pointer;
+    color: #000;
+}
+.close-icon {
+    text-align: right;
+    padding-right: 15px;
+}
+.close-icon i {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+#mobile_menu {
+    background: #fafafa;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0vw;
+    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    transition: all linear .4s;
+}
+#mobile_menu.show {
+    width: 35vw;
+    z-index: 9999;
+}
+.mobile-menu-wrapper {
+    overflow-y: auto;
+    height: 100%;
+    margin-right: 40px;
+}
+#mobile_menu ul {
+    padding-left: 40px;
+}
+#mobile_menu ul li {
+    list-style: none;
+    padding: 8px 35px 8px 20px;
+    position: relative;
+}
+#mobile_menu ul li .sub-menu li {
+    padding: 8px 0px 8px 20px;
+}
+#mobile_menu ul li .sub-menu li:after {
+    content: "-";
+    position: absolute;
+    left: 0;
+}
+#mobile_menu ul li.has-children .dropdown {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000;
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: all ease .4s;
+}
+#mobile_menu ul li.has-children .dropdown.show {
+    transform: rotate(180deg);
+}
+#mobile_menu ul li.has-children .sub-menu {
+    display: none;
+}
+/* #mobile_menu .mobile-menu-wrapper ul li.has-children .sub-menu {
+    overflow: hidden;
+    height: 0px;
+    transition: all ease .4s;
+}
+#mobile_menu .mobile-menu-wrapper ul li.has-children .sub-menu.show {
+    height: auto;
+}
+#mobile_menu .mobile-menu-wrapper ul li.has-children .sub-menu:before {
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000;
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    cursor: pointer;
+    transition: all ease .4s;
+}
+#mobile_menu .mobile-menu-wrapper ul li.has-children .sub-menu.show:before {
+    content: "";
+    transform: rotate(180deg);
+} */
+#mobile_menu ul li a {
+    font-family: 'Cerebri Sans Bold';
+    font-size: 30px;
+    line-height: 1.8;
+    color: #000;
+    text-transform: uppercase;
+    transition: color linear .4s;
+    position: relative;
+}
+#mobile_menu ul li .sub-menu li a {
+    font-size: 20px;
+    line-height: 1.5;
+}
+#mobile_menu ul li a.active, #mobile_menu ul li a:hover {
+    color: #e03d24;
+}
+
+#mobile_menu_social {
+    padding: 20px 20px 20px 60px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+#mobile_menu_social a {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fafafa;
+    background: #e03d24;
+    border: 1px solid #fafafa;
+    transition: all ease .2s;
+}
+#mobile_menu_social a:hover {
+    color: #e03d24;
+    background: #fafafa;
+    border: 1px solid #e03d24;
+}
+
+
+@media  screen and (min-width: 1439.99px) {
+    #menu ul li a {
+        font-size: 20px;
+    }
+}
+@media (max-width: 1000px) {
+    #logo, #hemburger_menu {
+        flex-basis: 50%;
+    }
+    #mobile_menu.show {
+        width: 70vw;
+    }
+}
+@media (max-width: 575.98px) {
+    #mobile_menu.show {
+        width: 96vw;
+    }
+    #mobile_menu ul {
+        padding-left: 20px;
+    }
+    #mobile_menu ul li a {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+    #mobile_menu ul li .sub-menu li a {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+    #mobile_menu .mobile-menu-wrapper ul li.has-children .sub-menu:before {
+        content: "";
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #000;
+        top: 16px;
+    }
+    #mobile_menu_social {
+        padding: 20px 20px 20px 40px;
+    }
+    #mobile_menu_social a {
+        font-size: 16px;
+        width: 46px;
+        height: 46px;
+    }
+}

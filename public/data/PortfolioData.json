@@ -1,0 +1,22 @@
+[
+    {
+        "title" : "Supro Online Store",
+        "category" : "Branding",
+        "imgsrc" : "images/portfolio/work-1.png"
+    },
+    {
+        "title" : "FG Print Brand",
+        "category" : "Branding",
+        "imgsrc" : "images/portfolio/work-1.png"
+    },
+    {
+        "title" : "Animation 1",
+        "category" : "Animation",
+        "imgsrc" : "images/portfolio/work-2.png"
+    },
+    {
+        "title" : "Animation 2",
+        "category" : "Animation",
+        "imgsrc" : "images/portfolio/work-2.png"
+    }
+]

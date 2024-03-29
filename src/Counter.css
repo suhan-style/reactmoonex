@@ -24,8 +24,11 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary {
+  border-width: 0;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
 }
 
 @keyframes App-logo-spin {

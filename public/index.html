@@ -26,8 +26,15 @@
     -->
     <title>React App</title>
   </head>
-  <body>
+  <body onload="init()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- page loader -->
+    <div class="se-pre-con">
+      <div class="vh-100 d-flex-center">
+          <img src="images/loader.gif" alt="loader" />
+      </div>
+    </div>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,5 +46,98 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+      // page loader - show after some seconds
+      $('.se-pre-con img').hide();
+      setInterval(function() {
+        $('.se-pre-con img').show();
+      }, 500);
+
+      // page loader - Wait for window load
+      $(window).load(function() {
+          // Animate loader off screen
+          $(".se-pre-con").delay(1500).slideUp('slow');
+      });
+
+      // verticle smooth scroll
+      function init(){
+      new SmoothScroll(document,120,15)
+      }
+
+      function SmoothScroll(target, speed, smooth) {
+      if (target === document)
+          target = (document.scrollingElement 
+                  || document.documentElement 
+                  || document.body.parentNode 
+                  || document.body) // cross browser support for document scrolling
+          
+      var moving = false
+      var pos = target.scrollTop
+      var frame = target === document.body 
+                  && document.documentElement 
+                  ? document.documentElement 
+                  : target // safari is the new IE
+
+      target.addEventListener('mousewheel', scrolled, { passive: false })
+      target.addEventListener('DOMMouseScroll', scrolled, { passive: false })
+
+      function scrolled(e) {
+          e.preventDefault(); // disable default scrolling
+
+          var delta = normalizeWheelDelta(e)
+
+          pos += -delta * speed
+          pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+
+          if (!moving) update()
+      }
+
+      function normalizeWheelDelta(e){
+          if(e.detail){
+          if(e.wheelDelta)
+              return e.wheelDelta/e.detail/40 * (e.detail>0 ? 1 : -1) // Opera
+          else
+              return -e.detail/3 // Firefox
+          }else
+          return e.wheelDelta/120 // IE,Safari,Chrome
+      }
+
+      function update() {
+          moving = true
+          
+          var delta = (pos - target.scrollTop) / smooth
+          
+          target.scrollTop += delta
+          
+          if (Math.abs(delta) > 0.5)
+          requestFrame(update)
+          else
+          moving = false
+      }
+
+      var requestFrame = function() { // requestAnimationFrame cross browser
+          return (
+          window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function(func) {
+              window.setTimeout(func, 1000 / 50);
+          }
+          );
+      }()
+      }
+
+      jQuery(function($) {
+        $('#mobile_menu ul li.has-children .dropdown').click(function() {
+          $(this).toggleClass('show');
+          $(this).next().slideToggle('slow');
+        });
+      });
+    </script>
   </body>
 </html>
